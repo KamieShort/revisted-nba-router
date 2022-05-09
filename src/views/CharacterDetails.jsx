@@ -1,5 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchDetails } from '../services/fetch.js';
 
 export default function CharacterDetails() {
-  return <div>This will show a detailed view of the selected character</div>;
+  const [character, setCharacter] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getDetails = async () => {
+      const data = await fetchDetails(id);
+
+      setCharacter(data);
+      console.log(data);
+    };
+
+    getDetails();
+  }, []);
+
+  return (
+    <>
+      <h1>{character.name}</h1>
+      <img
+        src={character.image}
+        alt={`Image of ${character.name}`}
+        border="2px black solid "
+        height="300px"
+      />
+      <h3>Status: {character.status}</h3>
+      <h3>Gender: {character.gender}</h3>
+      <p>Species: {character.species}</p>
+    </>
+  );
 }

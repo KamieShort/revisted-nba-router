@@ -12,6 +12,7 @@ export default function CharacterList() {
 
       setCharacters(data);
       setLoading(false);
+      console.log(data);
     };
     getCharacters();
   }, []);
@@ -31,7 +32,11 @@ export default function CharacterList() {
                 <h2>{character.name}</h2>
               </Link>
               <p>{character.status}</p>
-              <img src={character.image} alt={`Image of ${character.name}`} />
+              <img
+                src={character.image}
+                alt={`Image of ${character.name}`}
+                border="2px black solid "
+              />
             </div>
           ))}
         </div>
