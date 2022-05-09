@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchCharacters } from '../services/fetch';
+import { Link } from 'react-router-dom';
 
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
@@ -26,7 +27,9 @@ export default function CharacterList() {
         <div>
           {characters.map((character) => (
             <div key={character.id}>
-              <h2>{character.name}</h2>
+              <Link to={`/characters/${character.id}`}>
+                <h2>{character.name}</h2>
+              </Link>
               <p>{character.status}</p>
               <img src={character.image} alt={`Image of ${character.name}`} />
             </div>
