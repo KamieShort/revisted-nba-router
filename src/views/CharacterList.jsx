@@ -27,7 +27,7 @@ export default function CharacterList() {
         <div>
           {characters.map((character) => (
             <div key={character.id}>
-              <Link to={`/characters/${character.id}`}>
+              <Link to={`/characters/${character.id}`} aria-current="true">
                 <h2>{character.name}</h2>
               </Link>
               <p>{character.status}</p>

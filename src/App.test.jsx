@@ -1,4 +1,5 @@
 import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
@@ -9,17 +10,9 @@ describe('CharacterDetails', () => {
         <App />
       </MemoryRouter>
     );
-    // screen.debug();
-
-    // const loading = screen.getByText('Loading Characters...');
-    // expect(loading).toBeInTheDocument();
-
-    // const heading = await screen.findByText('Character List');
-    // expect(heading).toBeInTheDocument();
 
     const characterList = await screen.findByText('Species: Human');
     expect(characterList).toBeInTheDocument();
-    screen.debug();
   });
 });
 
@@ -39,6 +32,17 @@ describe('App', () => {
 
     const characterList = await screen.findByText('Rick Sanchez');
     expect(characterList).toBeInTheDocument();
-    // screen.debug();
+
+    // const characterLink = await screen.findByRole('link', {
+    //   name: /Rick Sanchez/i,
+    // });
+    // userEvent.click(characterLink);
+    // const rickLink = await screen.findByText('Rick Sanchez');
+    // userEvent.click(rickLink);
+
+    const link = await screen.findByRole('link', { name: /Rick Sanchez/i });
+    userEvent.click(link);
+
+    // screen.debug(link);
   });
 });

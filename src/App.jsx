@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import CharacterList from './views/CharacterList';
 import CharacterDetails from './views/CharacterDetails';
 
