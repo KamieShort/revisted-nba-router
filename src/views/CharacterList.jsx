@@ -12,7 +12,6 @@ export default function CharacterList() {
 
       setCharacters(data);
       setLoading(false);
-      console.log(data);
     };
     getCharacters();
   }, []);

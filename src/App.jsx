@@ -4,16 +4,14 @@ import CharacterDetails from './views/CharacterDetails';
 
 export default function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <CharacterList />
-        </Route>
+    <Switch>
+      <Route exact path="/">
+        <CharacterList />
+      </Route>
 
-        <Route path="/characters/:id">
-          <CharacterDetails />
-        </Route>
-      </Switch>
-    </Router>
+      <Route path="/characters/:id">
+        <CharacterDetails />
+      </Route>
+    </Switch>
   );
 }
