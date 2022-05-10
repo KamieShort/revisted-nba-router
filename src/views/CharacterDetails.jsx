@@ -27,7 +27,7 @@ export default function CharacterDetails() {
       />
       <h3>Status: {character.status}</h3>
       <h3>Gender: {character.gender}</h3>
-      <p>Species: {character.species}</p>
+      <h3>Species: {character.species}</h3>
     </>
   );
 }

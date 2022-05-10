@@ -33,15 +33,11 @@ describe('App', () => {
     const characterList = await screen.findByText('Rick Sanchez');
     expect(characterList).toBeInTheDocument();
 
-    // const characterLink = await screen.findByRole('link', {
-    //   name: /Rick Sanchez/i,
-    // });
-    // userEvent.click(characterLink);
-    // const rickLink = await screen.findByText('Rick Sanchez');
-    // userEvent.click(rickLink);
-
     const link = await screen.findByRole('link', { name: /Rick Sanchez/i });
     userEvent.click(link);
+
+    const rickDetails = await screen.findByText('Gender: Male');
+    expect(rickDetails).toBeInTheDocument();
 
     // screen.debug(link);
   });
