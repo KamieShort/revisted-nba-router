@@ -11,8 +11,13 @@ describe('CharacterDetails', () => {
       </MemoryRouter>
     );
 
-    const characterList = await screen.findByText('Species: Human');
-    expect(characterList).toBeInTheDocument();
+    const characterDetailHeading = await screen.findByRole('heading', {
+      name: /morty smith/i,
+    });
+    expect(characterDetailHeading).toBeInTheDocument();
+
+    const characterDetail = await screen.findByText('Species: Human');
+    expect(characterDetail).toBeInTheDocument();
   });
 });
 
@@ -38,7 +43,5 @@ describe('App', () => {
 
     const rickDetails = await screen.findByText('Gender: Male');
     expect(rickDetails).toBeInTheDocument();
-
-    // screen.debug(link);
   });
 });
